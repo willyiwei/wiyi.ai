@@ -1,0 +1,772 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout>
+  <!-- ═══════════════════════════════════════
+       NAVIGATION
+  ═══════════════════════════════════════ -->
+  <nav
+    id="main-nav"
+    class="fixed top-0 left-0 right-0 z-50 transition-all duration-500"
+    style="font-family: 'Outfit', sans-serif;"
+  >
+    <div class="max-w-7xl mx-auto px-8 lg:px-16 py-6 flex items-center justify-between">
+      <!-- Monogram -->
+      <a
+        href="#hero"
+        class="text-xl tracking-tight"
+        style="font-family: 'Cormorant Garamond', serif; font-weight: 400; color: #e0e0f0;"
+      >
+        W<span style="color: #e8a820;">Y</span>
+      </a>
+
+      <!-- Links -->
+      <div class="hidden md:flex items-center gap-8">
+        {[
+          { href: '#about', label: 'About' },
+          { href: '#work', label: 'Work' },
+          { href: '#projects', label: 'Projects' },
+          { href: '#interests', label: 'Interests' },
+        ].map(({ href, label }) => (
+          <a
+            href={href}
+            class="nav-link text-sm transition-colors duration-200"
+            style="color: #8888aa; letter-spacing: 0.04em;"
+            onmouseover="this.style.color='#e0e0f0'"
+            onmouseout="this.style.color='#8888aa'"
+          >
+            {label}
+          </a>
+        ))}
+        <a
+          href="#contact"
+          class="btn-ghost text-sm"
+          style="padding: 0.5rem 1.25rem;"
+        >
+          Connect
+        </a>
+      </div>
+
+      <!-- Mobile menu button -->
+      <button
+        id="mobile-menu-btn"
+        class="md:hidden flex flex-col gap-1.5 p-2"
+        aria-label="Menu"
+        onclick="document.getElementById('mobile-menu').classList.toggle('hidden')"
+      >
+        <span class="w-6 h-px block" style="background: #e0e0f0;"></span>
+        <span class="w-4 h-px block" style="background: #e0e0f0;"></span>
+        <span class="w-6 h-px block" style="background: #e0e0f0;"></span>
+      </button>
+    </div>
+
+    <!-- Mobile menu -->
+    <div
+      id="mobile-menu"
+      class="hidden md:hidden px-8 pb-6 flex flex-col gap-4"
+      style="background: rgba(7, 9, 15, 0.95); backdrop-filter: blur(16px);"
+    >
+      {['About', 'Work', 'Projects', 'Interests', 'Contact'].map((label) => (
+        <a
+          href={`#${label.toLowerCase()}`}
+          class="text-sm py-2 border-b"
+          style="color: #8888aa; border-color: rgba(255,255,255,0.06);"
+          onclick="document.getElementById('mobile-menu').classList.add('hidden')"
+        >
+          {label}
+        </a>
+      ))}
+    </div>
+  </nav>
+
+
+  <!-- ═══════════════════════════════════════
+       HERO
+  ═══════════════════════════════════════ -->
+  <section
+    id="hero"
+    class="relative min-h-screen flex flex-col justify-center overflow-hidden grain"
+    style="padding-top: 6rem; padding-bottom: 6rem;"
+  >
+    <!-- Starfield canvas -->
+    <canvas
+      id="starfield"
+      class="absolute inset-0 z-0"
+      style="pointer-events: none;"
+    ></canvas>
+
+    <!-- Nebula gradient layers -->
+    <div
+      class="absolute inset-0 z-0"
+      style="background:
+        radial-gradient(ellipse at 75% 25%, rgba(80, 40, 160, 0.14) 0%, transparent 55%),
+        radial-gradient(ellipse at 15% 65%, rgba(30, 60, 130, 0.11) 0%, transparent 50%),
+        radial-gradient(ellipse at 50% 90%, rgba(232, 168, 32, 0.06) 0%, transparent 45%),
+        radial-gradient(ellipse at 90% 80%, rgba(93, 212, 204, 0.04) 0%, transparent 40%),
+        #07090f;"
+    ></div>
+
+    <!-- Content -->
+    <div class="relative z-10 max-w-7xl mx-auto px-8 lg:px-16 w-full">
+      <!-- Role label -->
+      <div class="reveal reveal-d1 flex items-center gap-4 mb-8">
+        <div class="rule-amber" style="width: 2.5rem;"></div>
+        <span class="section-label" style="color: #e8a820;">
+          Engineering Manager &nbsp;·&nbsp; AI Practitioner &nbsp;·&nbsp; Builder
+        </span>
+      </div>
+
+      <!-- Name — the centerpiece -->
+      <h1
+        class="reveal reveal-d2"
+        style="
+          font-family: 'Cormorant Garamond', serif;
+          font-size: clamp(4.5rem, 13vw, 10.5rem);
+          font-weight: 400;
+          line-height: 0.88;
+          letter-spacing: -0.02em;
+          color: #e0e0f0;
+          margin: 0 0 2rem;
+        "
+      >
+        Will Yi
+      </h1>
+
+      <!-- Tagline + location row -->
+      <div class="reveal reveal-d3 flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12">
+        <p
+          style="
+            font-family: 'Outfit', sans-serif;
+            font-size: clamp(1rem, 2vw, 1.25rem);
+            font-weight: 300;
+            color: #8888aa;
+            max-width: 38rem;
+            line-height: 1.65;
+            margin: 0;
+          "
+        >
+          Building AI-native systems that extend<br />what humans can do.
+          Cisco Engineering Manager in Seattle, WA.
+        </p>
+
+        <!-- Location badge -->
+        <div
+          class="flex items-center gap-2 shrink-0"
+          style="font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; color: #5dd4cc; letter-spacing: 0.12em;"
+        >
+          <span style="width: 6px; height: 6px; border-radius: 50%; background: #5dd4cc; display: inline-block;"></span>
+          SEATTLE, WA
+        </div>
+      </div>
+
+      <!-- CTAs -->
+      <div class="reveal reveal-d4 flex flex-wrap gap-4 items-center">
+        <a href="#work" class="btn-amber">Explore My Work</a>
+        <a href="#contact" class="btn-ghost">Let's Connect →</a>
+      </div>
+    </div>
+
+    <!-- Scroll indicator -->
+    <div
+      class="absolute bottom-10 right-10 hidden md:flex flex-col items-center gap-3"
+      style="opacity: 0.3;"
+    >
+      <span
+        style="
+          font-family: 'JetBrains Mono', monospace;
+          font-size: 0.65rem;
+          letter-spacing: 0.18em;
+          color: #e0e0f0;
+          writing-mode: vertical-rl;
+        "
+      >SCROLL</span>
+      <div style="width: 1px; height: 4rem; background: linear-gradient(to bottom, #e0e0f0, transparent);"></div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════
+       ABOUT
+  ═══════════════════════════════════════ -->
+  <section
+    id="about"
+    class="relative py-32"
+    style="background: #0d0f1e;"
+  >
+    <div class="max-w-7xl mx-auto px-8 lg:px-16">
+      <!-- Section header -->
+      <div class="reveal flex items-center gap-4 mb-20">
+        <span class="section-label">01 / About</span>
+        <div style="flex: 1; height: 1px; background: rgba(255,255,255,0.07);"></div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-start">
+        <!-- Left: big statement -->
+        <div>
+          <h2
+            class="reveal"
+            style="
+              font-family: 'Cormorant Garamond', serif;
+              font-size: clamp(2.2rem, 4.5vw, 3.5rem);
+              font-weight: 600;
+              line-height: 1.15;
+              letter-spacing: -0.01em;
+              color: #e0e0f0;
+              margin: 0 0 2rem;
+            "
+          >
+            Systems thinker.<br />
+            <span style="color: #e8a820; font-style: italic;">AI practitioner.</span><br />
+            Obsessive builder.
+          </h2>
+
+          <div class="rule-amber reveal reveal-d1" style="width: 3rem; margin-bottom: 2rem;"></div>
+
+          <!-- Stats row -->
+          <div class="reveal reveal-d2 grid grid-cols-3 gap-6 mb-12">
+            {[
+              { value: '12+', label: 'Years Engineering' },
+              { value: '8', label: 'Engineers Led' },
+              { value: 'AI-First', label: 'Team Culture' },
+            ].map(({ value, label }) => (
+              <div>
+                <div
+                  style="
+                    font-family: 'Cormorant Garamond', serif;
+                    font-size: 2.2rem;
+                    font-weight: 300;
+                    color: #e8a820;
+                    line-height: 1;
+                    margin-bottom: 0.35rem;
+                  "
+                >
+                  {value}
+                </div>
+                <div style="font-size: 0.75rem; color: #8888aa; letter-spacing: 0.06em;">{label}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <!-- Right: bio -->
+        <div class="reveal reveal-d1 flex flex-col gap-5" style="color: #8888aa; font-size: 1rem; line-height: 1.8;">
+          <p>
+            I'm an Engineering Manager at Cisco leading the Wireless Intelligent Services team,
+            where I build AI-powered network systems and the agentic workflows that power our development process.
+          </p>
+          <p>
+            My edge is at the intersection of engineering leadership and applied AI. I don't just manage teams —
+            I integrate frontier AI into how those teams think, ship, and iterate.
+          </p>
+          <p>
+            Born in China, I moved to the US in 2014 and am based in Seattle, WA. Outside of systems and code: I photograph
+            deep-sky objects, run long distances, play guitar (acoustic and electric), and watch or play
+            nearly any sport that involves a ball.
+          </p>
+          <p>
+            I believe tacit knowledge is a design problem. If it can't be captured, encoded, and reused,
+            it's a liability. That belief shapes how I build teams, tools, and systems.
+          </p>
+
+          <div class="flex flex-wrap gap-3 mt-4">
+            {['AI/LLM Systems', 'Agentic Architectures', 'Engineering Leadership', 'System Design', 'Python', 'Astrophotography'].map((tag) => (
+              <span
+                style="
+                  font-family: 'JetBrains Mono', monospace;
+                  font-size: 0.68rem;
+                  letter-spacing: 0.08em;
+                  color: #5dd4cc;
+                  border: 1px solid rgba(93, 212, 204, 0.2);
+                  padding: 0.3rem 0.75rem;
+                  border-radius: 1px;
+                "
+              >
+                {tag}
+              </span>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════
+       WORK / EXPERIENCE
+  ═══════════════════════════════════════ -->
+  <section
+    id="work"
+    class="relative py-32"
+    style="background: #07090f;"
+  >
+    <div class="max-w-7xl mx-auto px-8 lg:px-16">
+      <div class="reveal flex items-center gap-4 mb-20">
+        <span class="section-label">02 / Work</span>
+        <div style="flex: 1; height: 1px; background: rgba(255,255,255,0.07);"></div>
+      </div>
+
+      <!-- Featured role -->
+      <div
+        class="reveal project-card p-10 mb-8"
+        style="background: #141728;"
+      >
+        <div class="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-6 mb-8">
+          <div>
+            <div class="section-label mb-3" style="color: #5dd4cc;">Current</div>
+            <h3
+              style="
+                font-family: 'Cormorant Garamond', serif;
+                font-size: clamp(1.6rem, 3vw, 2.5rem);
+                font-weight: 400;
+                color: #e0e0f0;
+                line-height: 1.2;
+                margin: 0 0 0.5rem;
+              "
+            >
+              Engineering Manager
+            </h3>
+            <div style="font-size: 1rem; color: #e8a820; font-weight: 400;">
+              Cisco — Wireless Intelligent Services
+            </div>
+          </div>
+          <div
+            style="
+              font-family: 'JetBrains Mono', monospace;
+              font-size: 0.72rem;
+              color: #8888aa;
+              letter-spacing: 0.1em;
+              white-space: nowrap;
+              padding-top: 0.25rem;
+            "
+          >
+            2020 — PRESENT
+          </div>
+        </div>
+
+        <div class="rule-amber mb-8" style="width: 2rem;"></div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8" style="color: #8888aa; font-size: 0.95rem; line-height: 1.75;">
+          <div>
+            <p>
+              Leading a team of 6–8 software engineers building AI-powered network intelligence systems.
+              Primary project: AI-RRM — a machine learning system for automated Radio Resource Management
+              that optimizes wireless network performance at scale.
+            </p>
+          </div>
+          <div>
+            <p>
+              Driving an AI-native development culture: integrating agentic workflows, LLM-assisted tooling,
+              and context infrastructure into daily engineering practice. Building the systems that let my team
+              move faster and think deeper.
+            </p>
+          </div>
+        </div>
+
+        <div class="flex flex-wrap gap-2">
+          {['Python', 'Machine Learning', 'AI Agents', 'LLM Integration', 'System Architecture', 'Team Leadership', 'Wireless Networking'].map((skill) => (
+            <span
+              style="
+                font-family: 'JetBrains Mono', monospace;
+                font-size: 0.65rem;
+                letter-spacing: 0.08em;
+                color: #8888aa;
+                background: rgba(255,255,255,0.04);
+                border: 1px solid rgba(255,255,255,0.08);
+                padding: 0.25rem 0.65rem;
+                border-radius: 1px;
+              "
+            >
+              {skill}
+            </span>
+          ))}
+        </div>
+      </div>
+
+      <!-- Earlier experience note -->
+      <div class="reveal reveal-d2 flex items-center gap-6 py-6" style="color: #44446a; border-top: 1px solid rgba(255,255,255,0.05);">
+        <div style="width: 2rem; height: 1px; background: #44446a; flex-shrink: 0;"></div>
+        <p style="font-size: 0.85rem; color: #44446a;">12+ years in software engineering across networking infrastructure, distributed systems, and AI applications.</p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════
+       PROJECTS
+  ═══════════════════════════════════════ -->
+  <section
+    id="projects"
+    class="relative py-32"
+    style="background: #0d0f1e;"
+  >
+    <div class="max-w-7xl mx-auto px-8 lg:px-16">
+      <div class="reveal flex items-center gap-4 mb-20">
+        <span class="section-label">03 / Projects</span>
+        <div style="flex: 1; height: 1px; background: rgba(255,255,255,0.07);"></div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {[
+          {
+            name: 'Context Infrastructure',
+            tag: 'AI · Productivity',
+            desc: 'A personal AI workspace system — rules, memory, skills, and agent orchestration patterns that turn Claude into a persistent, context-rich second brain.',
+            status: 'Active',
+            statusColor: '#5dd4cc',
+          },
+          {
+            name: 'AI-RRM',
+            tag: 'ML · Networking',
+            desc: 'AI-powered Radio Resource Management system for Cisco wireless networks. Applies reinforcement learning to optimize spectrum allocation and reduce interference at scale.',
+            status: 'Production',
+            statusColor: '#e8a820',
+          },
+          {
+            name: 'wiyi.ai',
+            tag: 'Astro · Design',
+            desc: 'This site. Built with Astro, Tailwind v4, and React. Designed as a living portfolio — the code and design are intentional artifacts, not an afterthought.',
+            status: 'This Site',
+            statusColor: '#8888aa',
+          },
+          {
+            name: 'AI Dev Workflows',
+            tag: 'AI · Engineering',
+            desc: 'A collection of agentic development workflows integrating Claude Code, parallel subagents, and structured memory into the software engineering process.',
+            status: 'Active',
+            statusColor: '#5dd4cc',
+          },
+          {
+            name: 'Astrophoto Pipeline',
+            tag: 'Python · Imaging',
+            desc: 'Automated image stacking, calibration, and post-processing pipeline for deep-sky astrophotography. Built to handle raw sensor data from long-exposure sessions.',
+            status: 'In Progress',
+            statusColor: '#8888aa',
+          },
+          {
+            name: 'Open to Build',
+            tag: 'Side Projects',
+            desc: 'Actively looking for interesting side projects and business opportunities — especially at the intersection of AI tooling, productivity, and knowledge management.',
+            status: 'Exploring',
+            statusColor: '#e8a820',
+            isOpen: true,
+          },
+        ].map(({ name, tag, desc, status, statusColor, isOpen }, i) => (
+          <div
+            class={`project-card p-8 flex flex-col reveal reveal-d${(i % 3) + 1}`}
+            style={`background: #141728; min-height: 260px; ${isOpen ? 'border: 1px solid rgba(232,168,32,0.2);' : ''}`}
+          >
+            <div class="flex items-start justify-between mb-4">
+              <span
+                style={`
+                  font-family: 'JetBrains Mono', monospace;
+                  font-size: 0.65rem;
+                  letter-spacing: 0.1em;
+                  color: ${statusColor};
+                `}
+              >
+                ● {status}
+              </span>
+              <span
+                style="
+                  font-family: 'JetBrains Mono', monospace;
+                  font-size: 0.65rem;
+                  letter-spacing: 0.08em;
+                  color: #44446a;
+                "
+              >
+                {tag}
+              </span>
+            </div>
+
+            <h3
+              style="
+                font-family: 'Cormorant Garamond', serif;
+                font-size: 1.45rem;
+                font-weight: 400;
+                color: #e0e0f0;
+                line-height: 1.2;
+                margin: 0 0 1rem;
+              "
+            >
+              {name}
+            </h3>
+
+            <p style="font-size: 0.875rem; color: #8888aa; line-height: 1.75; margin: 0; flex: 1;">
+              {desc}
+            </p>
+          </div>
+        ))}
+      </div>
+
+      <div class="reveal reveal-d4 mt-12 flex justify-center">
+        <a
+          href="https://github.com/willyiwei"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn-ghost"
+        >
+          More on GitHub →
+        </a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════
+       INTERESTS
+  ═══════════════════════════════════════ -->
+  <section
+    id="interests"
+    class="relative py-32"
+    style="background: #07090f;"
+  >
+    <div class="max-w-7xl mx-auto px-8 lg:px-16">
+      <div class="reveal flex items-center gap-4 mb-20">
+        <span class="section-label">04 / Beyond the Code</span>
+        <div style="flex: 1; height: 1px; background: rgba(255,255,255,0.07);"></div>
+      </div>
+
+      <!-- Interest tiles — CSS gradient backgrounds, no external images needed -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4" style="grid-auto-rows: 190px;">
+
+        <!-- Astrophotography - large tile spanning 2 cols × 2 rows -->
+        <div
+          class="reveal interest-tile lg:col-span-2"
+          style="height: 390px; grid-row: span 2;
+            background:
+              radial-gradient(ellipse at 30% 40%, rgba(93, 130, 255, 0.18) 0%, transparent 55%),
+              radial-gradient(ellipse at 80% 20%, rgba(160, 60, 220, 0.14) 0%, transparent 45%),
+              radial-gradient(ellipse at 60% 80%, rgba(93, 212, 204, 0.08) 0%, transparent 40%),
+              #090c1e;"
+        >
+          <!-- Star dots via SVG -->
+          <svg style="position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0.5;" xmlns="http://www.w3.org/2000/svg">
+            {Array.from({ length: 40 }, (_, i) => (
+              <circle
+                cx={`${(i * 47 + 13) % 100}%`}
+                cy={`${(i * 31 + 7) % 100}%`}
+                r={i % 5 === 0 ? "1.2" : "0.6"}
+                fill="white"
+                opacity={(0.2 + (i % 7) * 0.1).toFixed(1)}
+              />
+            ))}
+          </svg>
+          <div style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(7,9,15,0.88) 0%, rgba(7,9,15,0.3) 55%, transparent 100%);"></div>
+          <div style="position: absolute; bottom: 0; left: 0; right: 0; padding: 2rem; z-index: 10;">
+            <div class="section-label mb-2" style="color: #5dd4cc;">Astrophotography</div>
+            <h4 style="font-family: 'Cormorant Garamond', serif; font-size: 1.55rem; font-weight: 400; color: #e0e0f0; margin: 0 0 0.5rem; line-height: 1.2;">
+              Deep-sky imaging
+            </h4>
+            <p style="font-size: 0.82rem; color: #8888aa; line-height: 1.65; margin: 0;">
+              Long-exposure sessions targeting nebulae, galaxies, and star clusters.
+              Written complete imaging tutorials. Serious gear collector.
+            </p>
+          </div>
+        </div>
+
+        <!-- Running -->
+        <div class="reveal reveal-d1 interest-tile" style="height: 190px;
+          background:
+            radial-gradient(ellipse at 50% 0%, rgba(93, 212, 130, 0.18) 0%, transparent 60%),
+            linear-gradient(145deg, #0a1410 0%, #121f14 100%);"
+        >
+          <div style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(7,9,15,0.75) 0%, transparent 100%);"></div>
+          <div style="position: absolute; bottom: 0; left: 0; right: 0; padding: 1.25rem 1.5rem; z-index: 10;">
+            <div class="section-label mb-1" style="color: #e8a820;">Running</div>
+            <p style="font-size: 0.78rem; color: #8888aa; margin: 0;">Half marathon finisher. Always training further.</p>
+          </div>
+        </div>
+
+        <!-- Guitar -->
+        <div class="reveal reveal-d2 interest-tile" style="height: 190px;
+          background:
+            radial-gradient(ellipse at 50% 100%, rgba(232, 168, 32, 0.22) 0%, transparent 55%),
+            linear-gradient(160deg, #130e08 0%, #1a1208 100%);"
+        >
+          <div style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(7,9,15,0.75) 0%, transparent 100%);"></div>
+          <div style="position: absolute; bottom: 0; left: 0; right: 0; padding: 1.25rem 1.5rem; z-index: 10;">
+            <div class="section-label mb-1" style="color: #e8a820;">Guitar</div>
+            <p style="font-size: 0.78rem; color: #8888aa; margin: 0;">Acoustic and electric. Finding rhythm in the noise.</p>
+          </div>
+        </div>
+
+        <!-- Sports - spans 2 cols -->
+        <div class="reveal reveal-d3 interest-tile md:col-span-2" style="height: 190px;
+          background:
+            radial-gradient(ellipse at 20% 50%, rgba(232, 100, 32, 0.12) 0%, transparent 50%),
+            radial-gradient(ellipse at 80% 50%, rgba(93, 130, 232, 0.1) 0%, transparent 50%),
+            linear-gradient(90deg, #0e0c10 0%, #0a0c14 100%);"
+        >
+          <div style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(7,9,15,0.75) 0%, transparent 100%);"></div>
+          <div style="position: absolute; bottom: 0; left: 0; right: 0; padding: 1.25rem 1.5rem; z-index: 10;">
+            <div class="section-label mb-1" style="color: #e8a820;">Sports</div>
+            <p style="font-size: 0.78rem; color: #8888aa; margin: 0;">Basketball for a decade. Golf, badminton, and a fan of nearly every sport that exists.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════
+       CONTACT
+  ═══════════════════════════════════════ -->
+  <section
+    id="contact"
+    class="relative py-40 overflow-hidden"
+    style="background: #07090f;"
+  >
+    <!-- Background glow -->
+    <div
+      class="absolute inset-0 pointer-events-none"
+      style="background: radial-gradient(ellipse at 50% 100%, rgba(232,168,32,0.07) 0%, transparent 60%);"
+    ></div>
+
+    <div class="relative z-10 max-w-7xl mx-auto px-8 lg:px-16 text-center">
+      <div class="reveal flex items-center gap-4 mb-20 justify-center">
+        <div style="flex: 1; max-width: 4rem; height: 1px; background: rgba(255,255,255,0.07);"></div>
+        <span class="section-label">05 / Let's Talk</span>
+        <div style="flex: 1; max-width: 4rem; height: 1px; background: rgba(255,255,255,0.07);"></div>
+      </div>
+
+      <h2
+        class="reveal"
+        style="
+          font-family: 'Cormorant Garamond', serif;
+          font-size: clamp(2.5rem, 6vw, 5rem);
+          font-weight: 300;
+          line-height: 1.1;
+          letter-spacing: -0.02em;
+          color: #e0e0f0;
+          margin: 0 0 1.5rem;
+        "
+      >
+        Open to great opportunities<br />
+        <span style="color: #e8a820; font-style: italic;">and interesting conversations.</span>
+      </h2>
+
+      <p class="reveal reveal-d1 mx-auto mb-12" style="color: #8888aa; font-size: 1rem; max-width: 38rem; line-height: 1.8;">
+        I'm currently exploring senior engineering leadership roles, AI/tech advisory opportunities,
+        and ambitious side projects. If you're building something that matters, let's talk.
+      </p>
+
+      <!-- Open to row -->
+      <div class="reveal reveal-d2 flex flex-wrap justify-center gap-3 mb-14">
+        {[
+          'Senior EM / Director Roles',
+          'AI Strategy & Consulting',
+          'Side Project Collaboration',
+          'Technical Advisory',
+        ].map((item) => (
+          <span
+            style="
+              font-family: 'JetBrains Mono', monospace;
+              font-size: 0.68rem;
+              letter-spacing: 0.08em;
+              color: #5dd4cc;
+              border: 1px solid rgba(93, 212, 204, 0.2);
+              padding: 0.4rem 0.9rem;
+              border-radius: 1px;
+            "
+          >
+            {item}
+          </span>
+        ))}
+      </div>
+
+      <!-- Email CTA -->
+      <div class="reveal reveal-d3">
+        <a
+          href="mailto:willyiwei@gmail.com"
+          class="btn-amber text-base"
+          style="padding: 1rem 2.5rem;"
+        >
+          Say Hello →
+        </a>
+      </div>
+
+      <!-- Social links -->
+      <div class="reveal reveal-d4 flex justify-center gap-8 mt-16">
+        {[
+          { label: 'LinkedIn', href: 'https://linkedin.com/in/willyiwei' },
+          { label: 'GitHub', href: 'https://github.com/willyiwei' },
+          { label: 'Email', href: 'mailto:willyiwei@gmail.com' },
+        ].map(({ label, href }) => (
+          <a
+            href={href}
+            target={href.startsWith('http') ? '_blank' : undefined}
+            rel={href.startsWith('http') ? 'noopener noreferrer' : undefined}
+            style="
+              font-family: 'JetBrains Mono', monospace;
+              font-size: 0.72rem;
+              letter-spacing: 0.12em;
+              color: #8888aa;
+              text-decoration: none;
+              transition: color 0.2s ease;
+            "
+            onmouseover="this.style.color='#e8a820'"
+            onmouseout="this.style.color='#8888aa'"
+          >
+            {label}
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════
+       FOOTER
+  ═══════════════════════════════════════ -->
+  <footer
+    class="py-10"
+    style="border-top: 1px solid rgba(255,255,255,0.05); background: #07090f;"
+  >
+    <div
+      class="max-w-7xl mx-auto px-8 lg:px-16 flex flex-col md:flex-row items-center justify-between gap-4"
+      style="font-family: 'JetBrains Mono', monospace; font-size: 0.68rem; letter-spacing: 0.1em; color: #44446a;"
+    >
+      <span>© 2026 WILL YI</span>
+      <span>BUILT WITH ASTRO · TAILWIND · CRAFT</span>
+    </div>
+  </footer>
+</Layout>
+
+
+<!-- ═══════════════════════════════════════
+     STARFIELD SCRIPT
+═══════════════════════════════════════ -->
+<script>
+  const canvas = document.getElementById('starfield') as HTMLCanvasElement | null;
+  if (canvas) {
+    const ctx = canvas.getContext('2d');
+    if (ctx) {
+      const draw = () => {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        const count = Math.floor((canvas.width * canvas.height) / 8000);
+        for (let i = 0; i < count; i++) {
+          const x = Math.random() * canvas.width;
+          const y = Math.random() * canvas.height;
+          const r = Math.random() * 1.1 + 0.15;
+          const alpha = Math.random() * 0.65 + 0.1;
+          // Slight color variation — blue-white stars
+          const hue = 200 + Math.random() * 40;
+          ctx.beginPath();
+          ctx.arc(x, y, r, 0, Math.PI * 2);
+          ctx.fillStyle = `hsla(${hue}, 40%, 90%, ${alpha})`;
+          ctx.fill();
+        }
+      };
+      draw();
+      let resizeTimer: ReturnType<typeof setTimeout>;
+      window.addEventListener('resize', () => {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(draw, 150);
+      });
+    }
+  }
+</script>

@@ -1,0 +1,169 @@
+@import "tailwindcss";
+
+@theme {
+  --color-void: #07090f;
+  --color-deep: #0d0f1e;
+  --color-surface: #141728;
+  --color-card: #1a1d32;
+  --color-border: rgba(255, 255, 255, 0.07);
+  --color-amber: #e8a820;
+  --color-amber-glow: rgba(232, 168, 32, 0.12);
+  --color-teal: #5dd4cc;
+  --color-ink: #e0e0f0;
+  --color-muted: #8888aa;
+  --color-dim: #44446a;
+
+  --font-display: 'Cormorant Garamond', 'Georgia', serif;
+  --font-body: 'Outfit', 'Segoe UI', sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: subpixel-antialiased;
+}
+
+body {
+  background-color: #07090f;
+  color: #e0e0f0;
+  font-family: 'Outfit', sans-serif;
+  line-height: 1.7;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+::selection {
+  background: rgba(232, 168, 32, 0.22);
+  color: #fff;
+}
+
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: #07090f; }
+::-webkit-scrollbar-thumb { background: #1a1d32; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #e8a820; }
+
+/* Grain overlay */
+.grain::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 2;
+  opacity: 0.45;
+}
+
+/* Reveal animations */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.reveal.visible { opacity: 1; transform: translateY(0); }
+.reveal-d1 { transition-delay: 0.1s; }
+.reveal-d2 { transition-delay: 0.2s; }
+.reveal-d3 { transition-delay: 0.3s; }
+.reveal-d4 { transition-delay: 0.4s; }
+.reveal-d5 { transition-delay: 0.5s; }
+.reveal-d6 { transition-delay: 0.6s; }
+
+/* Nav glass effect when scrolled */
+#main-nav.scrolled {
+  background: rgba(7, 9, 15, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* Horizontal rule decoration */
+.rule-amber {
+  height: 1px;
+  background: linear-gradient(90deg, #e8a820 0%, rgba(232, 168, 32, 0.3) 40%, transparent 100%);
+}
+
+/* Section label style */
+.section-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #e8a820;
+}
+
+/* Card hover border animation */
+.project-card {
+  position: relative;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  transition: border-color 0.3s ease, transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.project-card::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: #e8a820;
+  transform: scaleY(0);
+  transform-origin: bottom;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.project-card:hover {
+  border-color: rgba(232, 168, 32, 0.25);
+  transform: translateY(-3px);
+}
+.project-card:hover::before { transform: scaleY(1); }
+
+/* Interest tile */
+.interest-tile {
+  position: relative;
+  overflow: hidden;
+  border-radius: 2px;
+}
+.interest-tile img {
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.interest-tile:hover img { transform: scale(1.05); }
+
+/* Amber button */
+.btn-amber {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.75rem;
+  background: #e8a820;
+  color: #07090f;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.875rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-decoration: none;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+.btn-amber:hover { background: #f0b830; transform: translateY(-1px); }
+.btn-amber:active { transform: translateY(0); }
+
+/* Ghost button */
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.75rem;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: rgba(224, 224, 240, 0.8);
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.875rem;
+  font-weight: 400;
+  letter-spacing: 0.05em;
+  text-decoration: none;
+  transition: border-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+.btn-ghost:hover {
+  border-color: rgba(255, 255, 255, 0.4);
+  color: #e0e0f0;
+  transform: translateY(-1px);
+}
