@@ -1,0 +1,2 @@
+# wiyi.ai
+Personal website
