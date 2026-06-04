@@ -37,3 +37,10 @@ screenshot.mjs
 screenshot-full.mjs
 screenshot-at.mjs
 screenshot-section.mjs
+
+# bash scripts and local dev log files
+.dev-server.pid
+dev-server.log
+restart-dev.sh
+start-dev.sh
+stop-dev.sh

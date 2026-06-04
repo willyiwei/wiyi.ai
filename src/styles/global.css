@@ -1,17 +1,17 @@
 @import "tailwindcss";
 
 @theme {
-  --color-void: #07090f;
-  --color-deep: #0d0f1e;
-  --color-surface: #141728;
-  --color-card: #1a1d32;
-  --color-border: rgba(255, 255, 255, 0.07);
-  --color-amber: #e8a820;
-  --color-amber-glow: rgba(232, 168, 32, 0.12);
-  --color-teal: #5dd4cc;
-  --color-ink: #e0e0f0;
-  --color-muted: #8888aa;
-  --color-dim: #44446a;
+  --color-void: #1A1A1A;
+  --color-deep: #0f0f0f;
+  --color-surface: #252525;
+  --color-card: #2a2a2a;
+  --color-border: rgba(231, 222, 209, 0.1);
+  --color-bronze: #9C6B30;
+  --color-bronze-glow: rgba(156, 107, 48, 0.15);
+  --color-cream: #E7DED1;
+  --color-ink: #E7DED1;
+  --color-muted: #b8a894;
+  --color-dim: #6a5f52;
 
   --font-display: 'Cormorant Garamond', 'Georgia', serif;
   --font-body: 'Outfit', 'Segoe UI', sans-serif;
@@ -26,8 +26,8 @@ html {
 }
 
 body {
-  background-color: #07090f;
-  color: #e0e0f0;
+  background-color: #1A1A1A;
+  color: #E7DED1;
   font-family: 'Outfit', sans-serif;
   line-height: 1.7;
   margin: 0;
@@ -36,14 +36,14 @@ body {
 }
 
 ::selection {
-  background: rgba(232, 168, 32, 0.22);
-  color: #fff;
+  background: rgba(156, 107, 48, 0.25);
+  color: #E7DED1;
 }
 
 ::-webkit-scrollbar { width: 5px; }
-::-webkit-scrollbar-track { background: #07090f; }
-::-webkit-scrollbar-thumb { background: #1a1d32; border-radius: 3px; }
-::-webkit-scrollbar-thumb:hover { background: #e8a820; }
+::-webkit-scrollbar-track { background: #1A1A1A; }
+::-webkit-scrollbar-thumb { background: #2a2a2a; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #9C6B30; }
 
 /* Grain overlay */
 .grain::after {
@@ -73,16 +73,16 @@ body {
 
 /* Nav glass effect when scrolled */
 #main-nav.scrolled {
-  background: rgba(7, 9, 15, 0.85);
+  background: rgba(26, 26, 26, 0.85);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  border-bottom: 1px solid rgba(231, 222, 209, 0.08);
 }
 
 /* Horizontal rule decoration */
-.rule-amber {
+.rule-bronze {
   height: 1px;
-  background: linear-gradient(90deg, #e8a820 0%, rgba(232, 168, 32, 0.3) 40%, transparent 100%);
+  background: linear-gradient(90deg, #9C6B30 0%, rgba(156, 107, 48, 0.3) 40%, transparent 100%);
 }
 
 /* Section label style */
@@ -91,13 +91,13 @@ body {
   font-size: 0.7rem;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: #e8a820;
+  color: #9C6B30;
 }
 
 /* Card hover border animation */
 .project-card {
   position: relative;
-  border: 1px solid rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(231, 222, 209, 0.1);
   transition: border-color 0.3s ease, transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 .project-card::before {
@@ -107,13 +107,13 @@ body {
   top: 0;
   bottom: 0;
   width: 2px;
-  background: #e8a820;
+  background: #9C6B30;
   transform: scaleY(0);
   transform-origin: bottom;
   transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 .project-card:hover {
-  border-color: rgba(232, 168, 32, 0.25);
+  border-color: rgba(156, 107, 48, 0.3);
   transform: translateY(-3px);
 }
 .project-card:hover::before { transform: scaleY(1); }
@@ -129,14 +129,14 @@ body {
 }
 .interest-tile:hover img { transform: scale(1.05); }
 
-/* Amber button */
-.btn-amber {
+/* Bronze button */
+.btn-bronze {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
   padding: 0.75rem 1.75rem;
-  background: #e8a820;
-  color: #07090f;
+  background: #9C6B30;
+  color: #1A1A1A;
   font-family: 'Outfit', sans-serif;
   font-size: 0.875rem;
   font-weight: 500;
@@ -144,8 +144,8 @@ body {
   text-decoration: none;
   transition: background 0.2s ease, transform 0.2s ease;
 }
-.btn-amber:hover { background: #f0b830; transform: translateY(-1px); }
-.btn-amber:active { transform: translateY(0); }
+.btn-bronze:hover { background: #b37d3d; transform: translateY(-1px); }
+.btn-bronze:active { transform: translateY(0); }
 
 /* Ghost button */
 .btn-ghost {
@@ -153,8 +153,8 @@ body {
   align-items: center;
   gap: 0.5rem;
   padding: 0.75rem 1.75rem;
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  color: rgba(224, 224, 240, 0.8);
+  border: 1px solid rgba(231, 222, 209, 0.2);
+  color: rgba(231, 222, 209, 0.8);
   font-family: 'Outfit', sans-serif;
   font-size: 0.875rem;
   font-weight: 400;
@@ -163,7 +163,7 @@ body {
   transition: border-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
 }
 .btn-ghost:hover {
-  border-color: rgba(255, 255, 255, 0.4);
-  color: #e0e0f0;
+  border-color: rgba(231, 222, 209, 0.4);
+  color: #E7DED1;
   transform: translateY(-1px);
 }
