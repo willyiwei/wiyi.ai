@@ -16,9 +16,9 @@ import Layout from '../layouts/Layout.astro';
       <a
         href="#hero"
         class="text-xl tracking-tight"
-        style="font-family: 'Cormorant Garamond', serif; font-weight: 400; color: #E7DED1;"
+        style="font-family: 'Cormorant Garamond', serif; font-weight: 400; color: #FAFAFA;"
       >
-        W<span style="color: #9C6B30;">Y</span>
+        W<span style="color: #D4A017;">Y</span>
       </a>
 
       <!-- Links -->
@@ -32,9 +32,9 @@ import Layout from '../layouts/Layout.astro';
           <a
             href={href}
             class="nav-link text-sm transition-colors duration-200"
-            style="color: #b8a894; letter-spacing: 0.04em;"
-            onmouseover="this.style.color='#E7DED1'"
-            onmouseout="this.style.color='#b8a894'"
+            style="color: #b0b0b0; letter-spacing: 0.04em;"
+            onmouseover="this.style.color='#FAFAFA'"
+            onmouseout="this.style.color='#b0b0b0'"
           >
             {label}
           </a>
@@ -55,9 +55,9 @@ import Layout from '../layouts/Layout.astro';
         aria-label="Menu"
         onclick="document.getElementById('mobile-menu').classList.toggle('hidden')"
       >
-        <span class="w-6 h-px block" style="background: #E7DED1;"></span>
-        <span class="w-4 h-px block" style="background: #E7DED1;"></span>
-        <span class="w-6 h-px block" style="background: #E7DED1;"></span>
+        <span class="w-6 h-px block" style="background: #FAFAFA;"></span>
+        <span class="w-4 h-px block" style="background: #FAFAFA;"></span>
+        <span class="w-6 h-px block" style="background: #FAFAFA;"></span>
       </button>
     </div>
 
@@ -65,13 +65,13 @@ import Layout from '../layouts/Layout.astro';
     <div
       id="mobile-menu"
       class="hidden md:hidden px-8 pb-6 flex flex-col gap-4"
-      style="background: rgba(26, 26, 26, 0.95); backdrop-filter: blur(16px);"
+      style="background: rgba(17, 17, 17, 0.95); backdrop-filter: blur(16px);"
     >
       {['About', 'Work', 'Projects', 'Interests', 'Contact'].map((label) => (
         <a
           href={`#${label.toLowerCase()}`}
           class="text-sm py-2 border-b"
-          style="color: #b8a894; border-color: rgba(231,222,209,0.08);"
+          style="color: #b0b0b0; border-color: rgba(250,250,250,0.08);"
           onclick="document.getElementById('mobile-menu').classList.add('hidden')"
         >
           {label}
@@ -100,19 +100,19 @@ import Layout from '../layouts/Layout.astro';
     <div
       class="absolute inset-0 z-0"
       style="background:
-        radial-gradient(ellipse at 75% 25%, rgba(156, 107, 48, 0.12) 0%, transparent 55%),
-        radial-gradient(ellipse at 15% 65%, rgba(231, 222, 209, 0.06) 0%, transparent 50%),
-        radial-gradient(ellipse at 50% 90%, rgba(156, 107, 48, 0.08) 0%, transparent 45%),
-        radial-gradient(ellipse at 90% 80%, rgba(231, 222, 209, 0.04) 0%, transparent 40%),
-        #1A1A1A;"
+        radial-gradient(ellipse at 75% 25%, rgba(212, 160, 23, 0.08) 0%, transparent 55%),
+        radial-gradient(ellipse at 15% 65%, rgba(212, 160, 23, 0.05) 0%, transparent 50%),
+        radial-gradient(ellipse at 50% 90%, rgba(212, 160, 23, 0.06) 0%, transparent 45%),
+        radial-gradient(ellipse at 90% 80%, rgba(212, 160, 23, 0.04) 0%, transparent 40%),
+        #111111;"
     ></div>
 
     <!-- Content -->
     <div class="relative z-10 max-w-7xl mx-auto px-8 lg:px-16 w-full">
       <!-- Role label -->
       <div class="reveal reveal-d1 flex items-center gap-4 mb-8">
-        <div class="rule-bronze" style="width: 2.5rem;"></div>
-        <span class="section-label" style="color: #9C6B30;">
+        <div class="rule-gold" style="width: 2.5rem;"></div>
+        <span class="section-label" style="color: #D4A017;">
           Engineering Leader &nbsp;·&nbsp; Security Professional &nbsp;·&nbsp; Distance Runner
         </span>
       </div>
@@ -126,7 +126,7 @@ import Layout from '../layouts/Layout.astro';
           font-weight: 400;
           line-height: 0.88;
           letter-spacing: -0.02em;
-          color: #E7DED1;
+          color: #FAFAFA;
           margin: 0 0 2rem;
         "
       >
@@ -140,7 +140,7 @@ import Layout from '../layouts/Layout.astro';
             font-family: 'Outfit', sans-serif;
             font-size: clamp(1rem, 2vw, 1.25rem);
             font-weight: 300;
-            color: #b8a894;
+            color: #b0b0b0;
             max-width: 38rem;
             line-height: 1.65;
             margin: 0;
@@ -153,7 +153,7 @@ import Layout from '../layouts/Layout.astro';
         <!-- Location badge -->
         <div
           class="flex items-center gap-2 shrink-0"
-          style="font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; color: #9C6B30; letter-spacing: 0.12em;"
+          style="font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; color: #D4A017; letter-spacing: 0.12em;"
         >
           <span style="width: 6px; height: 6px; border-radius: 50%; background: #9C6B30; display: inline-block;"></span>
           SEATTLE, WA
@@ -162,7 +162,7 @@ import Layout from '../layouts/Layout.astro';
 
       <!-- CTAs -->
       <div class="reveal reveal-d4 flex flex-wrap gap-4 items-center">
-        <a href="#work" class="btn-bronze">Explore My Work</a>
+        <a href="#work" class="btn-gold">Explore My Work</a>
         <a href="#contact" class="btn-ghost">Let's Connect →</a>
       </div>
     </div>
@@ -177,7 +177,7 @@ import Layout from '../layouts/Layout.astro';
           font-family: 'JetBrains Mono', monospace;
           font-size: 0.65rem;
           letter-spacing: 0.18em;
-          color: #E7DED1;
+          color: #FAFAFA;
           writing-mode: vertical-rl;
         "
       >SCROLL</span>
@@ -192,13 +192,13 @@ import Layout from '../layouts/Layout.astro';
   <section
     id="about"
     class="relative py-32"
-    style="background: #0f0f0f;"
+    style="background: #0a0a0a;"
   >
     <div class="max-w-7xl mx-auto px-8 lg:px-16">
       <!-- Section header -->
       <div class="reveal flex items-center gap-4 mb-20">
         <span class="section-label">01 / About</span>
-        <div style="flex: 1; height: 1px; background: rgba(231,222,209,0.1);"></div>
+        <div style="flex: 1; height: 1px; background: rgba(250,250,250,0.1);"></div>
       </div>
 
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-start">
@@ -212,16 +212,16 @@ import Layout from '../layouts/Layout.astro';
               font-weight: 600;
               line-height: 1.15;
               letter-spacing: -0.01em;
-              color: #E7DED1;
+              color: #FAFAFA;
               margin: 0 0 2rem;
             "
           >
             Endlessly curious.<br />
-            <span style="color: #9C6B30; font-style: italic;">Selectively rigorous.</span><br />
+            <span style="color: #D4A017; font-style: italic;">Selectively rigorous.</span><br />
             Always securing.
           </h2>
 
-          <div class="rule-bronze reveal reveal-d1" style="width: 3rem; margin-bottom: 2rem;"></div>
+          <div class="rule-gold reveal reveal-d1" style="width: 3rem; margin-bottom: 2rem;"></div>
 
           <!-- Stats row -->
           <div class="reveal reveal-d2 grid grid-cols-3 gap-6 mb-12">
@@ -236,7 +236,7 @@ import Layout from '../layouts/Layout.astro';
                     font-family: 'Cormorant Garamond', serif;
                     font-size: 2.2rem;
                     font-weight: 300;
-                    color: #9C6B30;
+                    color: #D4A017;
                     line-height: 1;
                     margin-bottom: 0.35rem;
                   "
@@ -289,8 +289,8 @@ import Layout from '../layouts/Layout.astro';
                   font-family: 'JetBrains Mono', monospace;
                   font-size: 0.68rem;
                   letter-spacing: 0.08em;
-                  color: #9C6B30;
-                  border: 1px solid rgba(156, 107, 48, 0.25);
+                  color: #D4A017;
+                  border: 1px solid rgba(212, 160, 23, 0.25);
                   padding: 0.3rem 0.75rem;
                   border-radius: 1px;
                 "
@@ -311,43 +311,43 @@ import Layout from '../layouts/Layout.astro';
   <section
     id="work"
     class="relative py-32"
-    style="background: #1A1A1A;"
+    style="background: #111111;"
   >
     <div class="max-w-7xl mx-auto px-8 lg:px-16">
       <div class="reveal flex items-center gap-4 mb-20">
         <span class="section-label">02 / Work</span>
-        <div style="flex: 1; height: 1px; background: rgba(231,222,209,0.1);"></div>
+        <div style="flex: 1; height: 1px; background: rgba(250,250,250,0.1);"></div>
       </div>
 
       <!-- Featured role -->
       <div
         class="reveal project-card p-10 mb-8"
-        style="background: #252525;"
+        style="background: #1a1a1a;"
       >
         <div class="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-6 mb-8">
           <div>
-            <div class="section-label mb-3" style="color: #9C6B30;">Current</div>
+            <div class="section-label mb-3" style="color: #D4A017;">Current</div>
             <h3
               style="
                 font-family: 'Cormorant Garamond', serif;
                 font-size: clamp(1.6rem, 3vw, 2.5rem);
                 font-weight: 400;
-                color: #E7DED1;
+                color: #FAFAFA;
                 line-height: 1.2;
                 margin: 0 0 0.5rem;
               "
             >
               Software Engineering Manager
             </h3>
-            <div style="font-size: 1rem; color: #9C6B30; font-weight: 400;">
-              Cisco — Wireless Intelligent Services
+            <div style="font-size: 1rem; color: #D4A017; font-weight: 400;">
+              Cisco Systems Inc.
             </div>
           </div>
           <div
             style="
               font-family: 'JetBrains Mono', monospace;
               font-size: 0.72rem;
-              color: #b8a894;
+              color: #b0b0b0;
               letter-spacing: 0.1em;
               white-space: nowrap;
               padding-top: 0.25rem;
@@ -357,34 +357,35 @@ import Layout from '../layouts/Layout.astro';
           </div>
         </div>
 
-        <div class="rule-bronze mb-8" style="width: 2rem;"></div>
+        <div class="rule-gold mb-8" style="width: 2rem;"></div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8" style="color: #b8a894; font-size: 0.95rem; line-height: 1.75;">
           <div>
             <p>
-              Leading a full-stack software development team focused on Intelligent Services across
-              Meraki Dashboard and Catalyst Center. The team owns AI-RRM, Config Recommendation,
-              and Agentic AI — products that bring machine intelligence directly into wireless network operations.
+              Leading a full-stack security and software development team focused on Secure Intelligent Services
+              across Meraki Dashboard and Cisco Infrastructure. The team owns AI-RRM security hardening, guardrail integration,
+              AI-driven security config recommendations, and secure Agentic AI - ensuring robust threat mitigation and safety are built directly into AI-driven network operations.
             </p>
           </div>
           <div>
             <p>
-              Beyond shipping product, I'm integrating agentic AI workflows into how the team develops software —
-              making AI a first-class part of the engineering process, not just the output.
+              Beyond shipping secure code, I'm integrating AI security and threat modeling workflows into
+              how the team develops software—making secure-by-design AI development a first-class part of the engineering process,
+              not just an afterthought.
             </p>
           </div>
         </div>
 
         <div class="flex flex-wrap gap-2">
-          {['Python', 'Machine Learning', 'AI Agents', 'LLM Integration', 'System Architecture', 'Team Leadership', 'Wireless Networking'].map((skill) => (
+          {['Infrastructure Security', 'AI Security', 'Agentic AI', 'Security Architecture', 'People Leadership and Talent Management'].map((skill) => (
             <span
               style="
                 font-family: 'JetBrains Mono', monospace;
                 font-size: 0.65rem;
                 letter-spacing: 0.08em;
-                color: #b8a894;
-                background: rgba(231,222,209,0.05);
-                border: 1px solid rgba(231,222,209,0.12);
+                color: #b0b0b0;
+                background: rgba(250,250,250,0.05);
+                border: 1px solid rgba(250,250,250,0.12);
                 padding: 0.25rem 0.65rem;
                 border-radius: 1px;
               "
@@ -401,10 +402,10 @@ import Layout from '../layouts/Layout.astro';
           <div>
             <div class="section-label mb-3" style="color: #b8a894;">Previous</div>
             <h3 style="font-family: 'Cormorant Garamond', serif; font-size: clamp(1.4rem, 2.5vw, 2rem); font-weight: 400; color: #E7DED1; line-height: 1.2; margin: 0 0 0.5rem;">
-              Software Engineering Manager
+              Engineering Manager | Security Architect
             </h3>
-            <div style="font-size: 1rem; color: #9C6B30; font-weight: 400;">
-              WatchGuard Technologies
+            <div style="font-size: 1rem; color: #D4A017; font-weight: 400;">
+              WatchGuard Technologies Inc.
             </div>
           </div>
           <div style="font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; color: #b8a894; letter-spacing: 0.1em; white-space: nowrap; padding-top: 0.25rem;">
@@ -412,28 +413,28 @@ import Layout from '../layouts/Layout.astro';
           </div>
         </div>
 
-        <div class="rule-bronze mb-8" style="width: 2rem;"></div>
+        <div class="rule-gold mb-8" style="width: 2rem;"></div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8" style="color: #b8a894; font-size: 0.95rem; line-height: 1.75;">
           <div>
             <p>
-              Led cross-functional teams through the transition from on-prem to AWS cloud architecture,
-              including the WatchGuard Cloud launch. Stabilized firmware and SaaS delivery, cutting
-              customer-reported issues by 60%.
+              Led cross-functional teams through the infrastructure transition from on-prem to AWS cloud architecture,
+              including the WatchGuard Cloud launch. Enforced Cloud Security and secure SaaS delivery,
+              cutting vulnerability risk and customer-reported issues by 60%.
             </p>
           </div>
           <div>
             <p>
-              Scaled automated test coverage from 10% to 90% — 3,000+ Python/Perl scripts across
-              distributed APIs, UIs, and CI/CD pipelines. Managed 10+ major releases end-to-end
-              with zero delays and 7x growth in E2E coverage.
+              Scaled automated security linting and policy enforcement using Python,
+              embedding compliance directly into distributed APIs, UIs, and CI/CD pipelines.
+              Governed security architecture for 10+ major releases end-to-end, maintaining zero deployment delays while achieving a 7x growth in automated vulnerability and risk coverage.
             </p>
           </div>
         </div>
 
         <div class="flex flex-wrap gap-2">
-          {['AWS', 'Cloud Architecture', 'Test Automation', 'Python', 'Perl', 'CI/CD', 'SaaS', 'Security'].map((skill) => (
-            <span style="font-family: 'JetBrains Mono', monospace; font-size: 0.65rem; letter-spacing: 0.08em; color: #b8a894; background: rgba(231,222,209,0.05); border: 1px solid rgba(231,222,209,0.12); padding: 0.25rem 0.65rem; border-radius: 1px;">
+          {['AWS Security', 'Cloud Architecture', 'Python', 'CI/CD', 'MSSP', 'Product Security'].map((skill) => (
+            <span style="font-family: 'JetBrains Mono', monospace; font-size: 0.65rem; letter-spacing: 0.08em; color: #b8a894; background: rgba(250,250,250,0.05); border: 1px solid rgba(250,250,250,0.12); padding: 0.25rem 0.65rem; border-radius: 1px;">
               {skill}
             </span>
           ))}
@@ -441,9 +442,9 @@ import Layout from '../layouts/Layout.astro';
       </div>
 
       <!-- Earlier experience note -->
-      <div class="reveal reveal-d2 flex items-center gap-6 py-6 mt-8" style="color: #6a5f52; border-top: 1px solid rgba(231,222,209,0.08);">
+      <div class="reveal reveal-d2 flex items-center gap-6 py-6 mt-8" style="color: #888888; border-top: 1px solid rgba(250,250,250,0.08);">
         <div style="width: 2rem; height: 1px; background: #6a5f52; flex-shrink: 0;"></div>
-        <p style="font-size: 0.85rem; color: #6a5f52;">Over 17 years in software engineering across networking, cloud infrastructure, system design, and AI applications.</p>
+        <p style="font-size: 0.85rem; color: #888888;">Over 18 years in software and security engineering across network, cloud infrastructure, application, system, and AI security.</p>
       </div>
     </div>
   </section>
@@ -455,12 +456,12 @@ import Layout from '../layouts/Layout.astro';
   <section
     id="projects"
     class="relative py-32"
-    style="background: #0f0f0f;"
+    style="background: #0a0a0a;"
   >
     <div class="max-w-7xl mx-auto px-8 lg:px-16">
       <div class="reveal flex items-center gap-4 mb-20">
         <span class="section-label">03 / Projects</span>
-        <div style="flex: 1; height: 1px; background: rgba(231,222,209,0.1);"></div>
+        <div style="flex: 1; height: 1px; background: rgba(250,250,250,0.1);"></div>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -529,7 +530,7 @@ import Layout from '../layouts/Layout.astro';
                   font-family: 'JetBrains Mono', monospace;
                   font-size: 0.65rem;
                   letter-spacing: 0.08em;
-                  color: #6a5f52;
+                  color: #888888;
                 "
               >
                 {tag}
@@ -541,7 +542,7 @@ import Layout from '../layouts/Layout.astro';
                 font-family: 'Cormorant Garamond', serif;
                 font-size: 1.45rem;
                 font-weight: 400;
-                color: #E7DED1;
+                color: #FAFAFA;
                 line-height: 1.2;
                 margin: 0 0 1rem;
               "
@@ -576,12 +577,12 @@ import Layout from '../layouts/Layout.astro';
   <section
     id="interests"
     class="relative py-32"
-    style="background: #1A1A1A;"
+    style="background: #111111;"
   >
     <div class="max-w-7xl mx-auto px-8 lg:px-16">
       <div class="reveal flex items-center gap-4 mb-20">
         <span class="section-label">04 / Beyond the Code</span>
-        <div style="flex: 1; height: 1px; background: rgba(231,222,209,0.1);"></div>
+        <div style="flex: 1; height: 1px; background: rgba(250,250,250,0.1);"></div>
       </div>
 
       <!-- Interest tiles — CSS gradient backgrounds, no external images needed -->
@@ -595,7 +596,7 @@ import Layout from '../layouts/Layout.astro';
         >
           <div style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(26,26,26,0.75) 0%, transparent 100%);"></div>
           <div style="position: absolute; bottom: 0; left: 0; right: 0; padding: 1.25rem 1.5rem; z-index: 10;">
-            <div class="section-label mb-1" style="color: #9C6B30;">Running</div>
+            <div class="section-label mb-1" style="color: #D4A017;">Running</div>
             <p style="font-size: 0.78rem; color: #b8a894; margin: 0;">Half marathon finisher. Always training further.</p>
           </div>
         </div>
@@ -608,7 +609,7 @@ import Layout from '../layouts/Layout.astro';
         >
           <div style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(26,26,26,0.75) 0%, transparent 100%);"></div>
           <div style="position: absolute; bottom: 0; left: 0; right: 0; padding: 1.25rem 1.5rem; z-index: 10;">
-            <div class="section-label mb-1" style="color: #9C6B30;">Guitar</div>
+            <div class="section-label mb-1" style="color: #D4A017;">Guitar</div>
             <p style="font-size: 0.78rem; color: #b8a894; margin: 0;">Acoustic and electric. Finding rhythm in the noise.</p>
           </div>
         </div>
@@ -622,7 +623,7 @@ import Layout from '../layouts/Layout.astro';
         >
           <div style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(26,26,26,0.75) 0%, transparent 100%);"></div>
           <div style="position: absolute; bottom: 0; left: 0; right: 0; padding: 1.25rem 1.5rem; z-index: 10;">
-            <div class="section-label mb-1" style="color: #9C6B30;">Travel</div>
+            <div class="section-label mb-1" style="color: #D4A017;">Travel</div>
             <p style="font-size: 0.78rem; color: #b8a894; margin: 0;">Exploring the world with family — and documenting every moment along the way.</p>
           </div>
         </div>
@@ -638,7 +639,7 @@ import Layout from '../layouts/Layout.astro';
   <section
     id="contact"
     class="relative py-40 overflow-hidden"
-    style="background: #1A1A1A;"
+    style="background: #111111;"
   >
     <!-- Background glow -->
     <div
@@ -648,9 +649,9 @@ import Layout from '../layouts/Layout.astro';
 
     <div class="relative z-10 max-w-7xl mx-auto px-8 lg:px-16 text-center">
       <div class="reveal flex items-center gap-4 mb-20 justify-center">
-        <div style="flex: 1; max-width: 4rem; height: 1px; background: rgba(231,222,209,0.1);"></div>
+        <div style="flex: 1; max-width: 4rem; height: 1px; background: rgba(250,250,250,0.1);"></div>
         <span class="section-label">05 / Let's Talk</span>
-        <div style="flex: 1; max-width: 4rem; height: 1px; background: rgba(231,222,209,0.1);"></div>
+        <div style="flex: 1; max-width: 4rem; height: 1px; background: rgba(250,250,250,0.1);"></div>
       </div>
 
       <h2
@@ -661,12 +662,12 @@ import Layout from '../layouts/Layout.astro';
           font-weight: 300;
           line-height: 1.1;
           letter-spacing: -0.02em;
-          color: #E7DED1;
+          color: #FAFAFA;
           margin: 0 0 1.5rem;
         "
       >
         Open to great opportunities<br />
-        <span style="color: #9C6B30; font-style: italic;">and interesting conversations.</span>
+        <span style="color: #D4A017; font-style: italic;">and interesting conversations.</span>
       </h2>
 
       <p class="reveal reveal-d1 mx-auto mb-12" style="color: #b8a894; font-size: 1rem; max-width: 38rem; line-height: 1.8;">
@@ -687,8 +688,8 @@ import Layout from '../layouts/Layout.astro';
               font-family: 'JetBrains Mono', monospace;
               font-size: 0.68rem;
               letter-spacing: 0.08em;
-              color: #9C6B30;
-              border: 1px solid rgba(156, 107, 48, 0.25);
+              color: #D4A017;
+              border: 1px solid rgba(212, 160, 23, 0.25);
               padding: 0.4rem 0.9rem;
               border-radius: 1px;
             "
@@ -724,7 +725,7 @@ import Layout from '../layouts/Layout.astro';
               font-family: 'JetBrains Mono', monospace;
               font-size: 0.72rem;
               letter-spacing: 0.12em;
-              color: #b8a894;
+              color: #b0b0b0;
               text-decoration: none;
               transition: color 0.2s ease;
             "
@@ -744,11 +745,11 @@ import Layout from '../layouts/Layout.astro';
   ═══════════════════════════════════════ -->
   <footer
     class="py-10"
-    style="border-top: 1px solid rgba(231,222,209,0.08); background: #1A1A1A;"
+    style="border-top: 1px solid rgba(250,250,250,0.08); background: #1A1A1A;"
   >
     <div
       class="max-w-7xl mx-auto px-8 lg:px-16 flex flex-col md:flex-row items-center justify-between gap-4"
-      style="font-family: 'JetBrains Mono', monospace; font-size: 0.68rem; letter-spacing: 0.1em; color: #6a5f52;"
+      style="font-family: 'JetBrains Mono', monospace; font-size: 0.68rem; letter-spacing: 0.1em; color: #888888;"
     >
       <span>© 2026 WILL YI</span>
       <span>BUILT WITH ASTRO · TAILWIND · CRAFT</span>

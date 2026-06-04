@@ -44,3 +44,6 @@ dev-server.log
 restart-dev.sh
 start-dev.sh
 stop-dev.sh
+
+# Color scheme file
+COLORS.md
